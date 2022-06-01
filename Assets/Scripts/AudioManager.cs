@@ -69,23 +69,24 @@ public class AudioManager : MonoBehaviour
     {
         if (PlayerPrefs.GetInt("Sound") == 1)
         {
-          
-            source.mute = enabled;
-            for (int i = 0; i < PlayerContoller1.instance.Holder.Count; i++)
-            {
-                PlayerContoller1.instance.Holder[i].gameObject.GetComponent<AudioSource>().mute = enabled;
-            }
+
+            FindObjectOfType<AudioListener>().enabled = false;
+            //source.mute = enabled;
+            //for (int i = 0; i < PlayerContoller1.instance.Holder.Count; i++)
+            //{
+            //    PlayerContoller1.instance.Holder[i].gameObject.GetComponent<AudioSource>().mute = enabled;
+            //}
         }
         else
         {
-           
-            source.mute = !enabled;
+            FindObjectOfType<AudioListener>().enabled = true;
+            //source.mute = !enabled;
 
-            
-            for (int i = 0; i < PlayerContoller1.instance.Holder.Count; i++)
-            {
-                PlayerContoller1.instance.Holder[i].gameObject.GetComponent<AudioSource>().mute = !enabled;
-            }
+
+            //for (int i = 0; i < PlayerContoller1.instance.Holder.Count; i++)
+            //{
+            //    PlayerContoller1.instance.Holder[i].gameObject.GetComponent<AudioSource>().mute = !enabled;
+            //}
         }
     }
 

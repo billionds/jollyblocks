@@ -2,6 +2,7 @@ using DG.Tweening;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerContoller1 : MonoBehaviour
 {
@@ -74,9 +75,22 @@ public class PlayerContoller1 : MonoBehaviour
 
     private void Update()
     {
-        if (Gamestarted&&CanPlace)
+
+        #region MyDebug
+#if UNITY_EDITOR
+        if (Input.GetMouseButtonDown(1))
+            SceneManager.LoadScene(0);
+        if (Input.GetKeyDown("b"))
+            Debug.Break();
+        if (Input.GetKeyDown("d"))
+            PlayerPrefs.DeleteKey("Level");
+        if (Input.GetKeyDown("n"))
+            PlayerPrefs.SetInt("Level", PlayerPrefs.GetInt("Level") + 1);
+#endif
+        #endregion
+        if (Gamestarted && CanPlace)
         {
-            if (Input.GetMouseButtonDown(0))
+            if (Input.GetMouseButtonDown(0) || current>0)
             {
                 if (current < Holder.Count)
                 {
@@ -94,7 +108,6 @@ public class PlayerContoller1 : MonoBehaviour
                     CountTxt.text = (Holder.Count - current).ToString();
 
                 }
-               
             }           
         }
 

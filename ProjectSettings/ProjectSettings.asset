@@ -660,8 +660,8 @@ PlayerSettings:
   webGLThreadsSupport: 0
   webGLDecompressionFallback: 0
   scriptingDefineSymbols:
-    4: 
-    7: USE_IRONSOURCE
+    4: gameanalytics_ironsource_enabled
+    7: USE_IRONSOURCE;gameanalytics_ironsource_enabled
     14: 
   additionalCompilerArguments: {}
   platformArchitecture: {}
